@@ -8,12 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Game2048
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace Game2048 {
+    public partial class Settings : Form {
+        public Settings() {
             InitializeComponent();
         }
     }
