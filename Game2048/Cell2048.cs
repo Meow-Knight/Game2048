@@ -20,11 +20,11 @@ namespace Game2048 {
         public int YCoordinate;
         public int Size;
 
-        private LinearGradientBrush brushRectangle;
+        private SolidBrush brushRectangle;
         private SolidBrush brushValue;
 
         static Cell2048() {
-            Cell2048.margin = 1;
+            Cell2048.margin = 4;
             Cell2048.colorDictionary = new Dictionary<int, Color>();
 
             colorDictionary.Add(2, Color.Yellow);
@@ -40,8 +40,8 @@ namespace Game2048 {
         public Cell2048(int XCoordinate, int YCoordinate, int size, int value) {
             this.Value = value;
             this.Size = size;
-            this.XCoordinate = XCoordinate;
-            this.YCoordinate = YCoordinate;
+            this.XCoordinate = XCoordinate + Cell2048.margin / 2;
+            this.YCoordinate = YCoordinate + Cell2048.margin / 2;
 
             int sizeRectangle = this.Size - Cell2048.margin;
             this.rectangle = new Rectangle(this.XCoordinate, this.YCoordinate, sizeRectangle, sizeRectangle);
@@ -50,8 +50,7 @@ namespace Game2048 {
         }
 
         private void setBrush(Color color) {
-            Color lighterColor = Color.FromArgb(180, color);
-            this.brushRectangle = new LinearGradientBrush(this.rectangle, lighterColor, color, LinearGradientMode.Vertical);
+            this.brushRectangle = new SolidBrush(color);
         }
 
         public void draw(Graphics graphics) {

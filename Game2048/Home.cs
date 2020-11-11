@@ -50,6 +50,8 @@ namespace Game2048
         }
 
         private void render() {
+            this.lbScore.Text = Controller.score.ToString();
+
             for (int i = 0; i < Controller.CellPosition.Length; ++i) { 
                 addRectangle(i, Controller.CellPosition[i]);
             }
@@ -67,18 +69,28 @@ namespace Game2048
 
         private void Home_KeyDown(object sender, KeyEventArgs e) {
             switch (e.KeyValue) {
-                case 37:
+                case 37: // Left
+                    Controller.moveToLeft();
                     break;
-                case 38:
+                case 38: // Top
+                    Controller.moveToTop();
                     break;
-                case 39:
+                case 39: // Right
                     Controller.moveToRight();
                     break;
-                case 40:
+                case 40: // Bottom
+                    Controller.moveToBottom();
                     break;
             }
 
+            Controller.generateRandomCell();
+
             this.panel1.Invalidate();
+        }
+
+        private void leaderBoardToolStripMenuItem_Click(object sender, EventArgs e) {
+            LeaderBoard leaderBoard = new LeaderBoard(4);
+            leaderBoard.ShowDialog();
         }
     }
 }
