@@ -35,6 +35,13 @@ namespace Game2048 {
             colorDictionary.Add(64, Color.Purple);
             colorDictionary.Add(128, Color.DarkCyan);
             colorDictionary.Add(256, Color.DarkMagenta);
+            colorDictionary.Add(512, Color.ForestGreen);
+            colorDictionary.Add(1024, Color.DarkSalmon);
+            colorDictionary.Add(2048, Color.DarkTurquoise);
+            colorDictionary.Add(4096, Color.HotPink);
+            colorDictionary.Add(8192, Color.Black);
+            colorDictionary.Add(16384, Color.MidnightBlue);
+            colorDictionary.Add(32768, Color.Violet);
         }
 
         public Cell2048(int XCoordinate, int YCoordinate, int size, int value) {

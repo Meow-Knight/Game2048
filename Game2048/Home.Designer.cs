@@ -33,13 +33,13 @@ namespace Game2048
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.itemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.leaderBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbScore = new System.Windows.Forms.Label();
             this.lbBestScore = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.bestScore = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbScoreTitle = new System.Windows.Forms.Label();
-            this.leaderBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +67,16 @@ namespace Game2048
             // itemSettings
             // 
             this.itemSettings.Name = "itemSettings";
-            this.itemSettings.Size = new System.Drawing.Size(224, 26);
+            this.itemSettings.Size = new System.Drawing.Size(177, 26);
             this.itemSettings.Text = "Settings";
             this.itemSettings.Click += new System.EventHandler(this.itemSettings_Click);
+            // 
+            // leaderBoardToolStripMenuItem
+            // 
+            this.leaderBoardToolStripMenuItem.Name = "leaderBoardToolStripMenuItem";
+            this.leaderBoardToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.leaderBoardToolStripMenuItem.Text = "LeaderBoard";
+            this.leaderBoardToolStripMenuItem.Click += new System.EventHandler(this.leaderBoardToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -95,33 +102,33 @@ namespace Game2048
             // 
             // lbBestScore
             // 
-            this.lbBestScore.Location = new System.Drawing.Point(0, 12);
+            this.lbBestScore.Location = new System.Drawing.Point(-1, 12);
             this.lbBestScore.Name = "lbBestScore";
             this.lbBestScore.Size = new System.Drawing.Size(135, 23);
             this.lbBestScore.TabIndex = 3;
             this.lbBestScore.Text = "Best Score";
             this.lbBestScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // bestScore
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 27);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bestScore.BackColor = System.Drawing.SystemColors.Control;
+            this.bestScore.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bestScore.Enabled = false;
+            this.bestScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bestScore.Location = new System.Drawing.Point(0, 38);
+            this.bestScore.Name = "bestScore";
+            this.bestScore.Size = new System.Drawing.Size(135, 27);
+            this.bestScore.TabIndex = 4;
+            this.bestScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.bestScore);
             this.panel2.Controls.Add(this.lbBestScore);
             this.panel2.Location = new System.Drawing.Point(355, 46);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(134, 70);
+            this.panel2.Size = new System.Drawing.Size(134, 79);
             this.panel2.TabIndex = 5;
             // 
             // lbScoreTitle
@@ -132,13 +139,6 @@ namespace Game2048
             this.lbScoreTitle.Size = new System.Drawing.Size(45, 17);
             this.lbScoreTitle.TabIndex = 6;
             this.lbScoreTitle.Text = "Score";
-            // 
-            // leaderBoardToolStripMenuItem
-            // 
-            this.leaderBoardToolStripMenuItem.Name = "leaderBoardToolStripMenuItem";
-            this.leaderBoardToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.leaderBoardToolStripMenuItem.Text = "LeaderBoard";
-            this.leaderBoardToolStripMenuItem.Click += new System.EventHandler(this.leaderBoardToolStripMenuItem_Click);
             // 
             // Home
             // 
@@ -158,6 +158,7 @@ namespace Game2048
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game 2048";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Home_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -176,7 +177,7 @@ namespace Game2048
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbScore;
         private Label lbBestScore;
-        private TextBox textBox1;
+        private TextBox bestScore;
         private Panel panel2;
         private Label lbScoreTitle;
         private ToolStripMenuItem leaderBoardToolStripMenuItem;

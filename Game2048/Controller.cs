@@ -7,6 +7,8 @@ using System.Windows.Forms;
 
 namespace Game2048 {
     static class Controller {
+        public static Home home;
+
         private static int[] cellPosition;
         private static int level;
         public static int score;
@@ -15,18 +17,7 @@ namespace Game2048 {
         private const int valuePerRandom = 2;
 
         static Controller() {
-            score = 0;
             level = 4;
-            isOver = false;
-            cellPosition = new int[level * level];
-
-            // Test
-            cellPosition[2] = 16;
-            cellPosition[5] = 16;
-            cellPosition[6] = 16;
-            cellPosition[4] = 16;
-            cellPosition[7] = 16;
-            cellPosition[12] = 16;
         }
 
         public static int Level { 
@@ -145,7 +136,7 @@ namespace Game2048 {
             }
         }
 
-        public static void generateRandomCell() {
+        public static void generateRandomCell(bool isRequired = false) {
             List<int> emptyCells = new List<int>();
 
             for (int i = 0; i < cellPosition.Length; ++i) {
@@ -165,23 +156,40 @@ namespace Game2048 {
 
             Random random = new Random();
 
-            int numRandomCellNext = (int) Math.Ceiling(random.NextDouble() * 2);
+            int numRandomCellNext = isRequired ? 2 : (int) Math.Ceiling(random.NextDouble() * 2);
 
             while (numRandomCellNext-- != 0) {
                 int randomEmptyCell = (int)Math.Floor(random.NextDouble() * emptyCells.Count);
                 cellPosition[emptyCells[randomEmptyCell]] = valuePerRandom;
                 emptyCells.RemoveAt(randomEmptyCell);
             }
+
+            home.drawAgain();
         }
 
         public static void isGameOver() {
             isOver = true;
 
-            DatabaseServices.update();
             MessageBox.Show($"Your score is: {score}!", "Game over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            UserNamePrompt userNamePrompt = new UserNamePrompt();
+            userNamePrompt.ShowDialog();
 
             LeaderBoard leaderBoard = new LeaderBoard(level);
             leaderBoard.ShowDialog();
+
+            startGame();
+        }
+
+        public static void startGame() {
+            home.setBestScore(DatabaseServices.getHighScore(level));
+
+            score = 0;
+            isOver = false;
+            cellPosition = new int[level * level];
+
+            generateRandomCell(true);
+
         }
     }
 }

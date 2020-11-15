@@ -22,6 +22,15 @@ namespace Game2048
             InitializeComponent();
         }
 
+        private void Home_Load(object sender, EventArgs e) {
+            Controller.home = this;
+            Controller.startGame();
+        }
+
+        public void setBestScore(int bestScore) {
+            this.bestScore.Text = bestScore.ToString();
+        }
+
         private void itemSettings_Click(object sender, EventArgs e) {
             Settings settings = new Settings();
             settings.ShowDialog();
@@ -84,7 +93,9 @@ namespace Game2048
             }
 
             Controller.generateRandomCell();
+        }
 
+        public void drawAgain() {
             this.panel1.Invalidate();
         }
 

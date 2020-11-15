@@ -29,6 +29,11 @@ namespace Game2048 {
             string levelKey = (string)this.Level.Items[this.Level.SelectedIndex];
             this.LeaderBoardData.DataSource = DatabaseServices.getData(LeaderBoard.level[levelKey]);
         }
+
+        private void ClearButton_Click(object sender, EventArgs e) {
+            int currentLevel = level[(string) this.Level.SelectedItem];
+            DatabaseServices.clear(currentLevel);
+        }
     }
 
 

@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.LeaderBoardData = new System.Windows.Forms.DataGridView();
             this.Level = new System.Windows.Forms.ComboBox();
+            this.ClearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LeaderBoardData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,11 +58,22 @@
             this.Level.TabIndex = 1;
             this.Level.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(416, 13);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 2;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
             // LeaderBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 450);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.Level);
             this.Controls.Add(this.LeaderBoardData);
             this.Name = "LeaderBoard";
@@ -75,5 +87,6 @@
 
         private System.Windows.Forms.DataGridView LeaderBoardData;
         private System.Windows.Forms.ComboBox Level;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
