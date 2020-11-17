@@ -1,3 +1,5 @@
+CREATE DATABASE Data2048Game;
+
 USE Data2048Game
 
 CREATE TABLE ScoreLevel4 (

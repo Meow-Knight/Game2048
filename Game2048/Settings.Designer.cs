@@ -30,9 +30,10 @@
             // LevelLabel
             // 
             this.LevelLabel.AutoSize = true;
-            this.LevelLabel.Location = new System.Drawing.Point(12, 15);
+            this.LevelLabel.Location = new System.Drawing.Point(9, 12);
+            this.LevelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LevelLabel.Name = "LevelLabel";
-            this.LevelLabel.Size = new System.Drawing.Size(42, 17);
+            this.LevelLabel.Size = new System.Drawing.Size(33, 13);
             this.LevelLabel.TabIndex = 2;
             this.LevelLabel.Text = "Level";
             // 
@@ -40,24 +41,27 @@
             // 
             this.LevelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.LevelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LevelComboBox.FormattingEnabled = true;
             this.LevelComboBox.Items.AddRange(new object[] {
             "Level 4x4",
             "Level 5x5",
             "Level 6x6"});
-            this.LevelComboBox.Location = new System.Drawing.Point(60, 12);
+            this.LevelComboBox.Location = new System.Drawing.Point(45, 10);
+            this.LevelComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LevelComboBox.Name = "LevelComboBox";
-            this.LevelComboBox.Size = new System.Drawing.Size(169, 24);
+            this.LevelComboBox.Size = new System.Drawing.Size(128, 21);
             this.LevelComboBox.TabIndex = 3;
             this.LevelComboBox.SelectedIndexChanged += new System.EventHandler(this.LevelComboBox_SelectedIndexChanged);
             // 
             // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 53);
+            this.ClientSize = new System.Drawing.Size(181, 43);
             this.Controls.Add(this.LevelComboBox);
             this.Controls.Add(this.LevelLabel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Settings";

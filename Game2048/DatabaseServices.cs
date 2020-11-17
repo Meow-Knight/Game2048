@@ -34,7 +34,7 @@ namespace Game2048 {
         }
 
         public static void getConnection() {
-            string connectionString = @"Data Source=MINH-COMPUTER\SQLEXPRESS;Initial Catalog=Data2048Game;Integrated Security=True;";
+            string connectionString = @"Data Source=DESKTOP-5I6056Q\SQLEXPRESS;Initial Catalog=Data2048Game;Integrated Security=True;";
             connection.ConnectionString = connectionString;
             connection.Open();
 
@@ -127,7 +127,9 @@ namespace Game2048 {
                     break;
             }
 
-            dataAdapters[$"lv{level}"].Update(table);
+            string sqlTrunc = $"TRUNCATE TABLE ScoreLevel{level}";
+            SqlCommand cmdTruncate = new SqlCommand(sqlTrunc, connection);
+            cmdTruncate.ExecuteNonQuery();
         }
     }
 }
